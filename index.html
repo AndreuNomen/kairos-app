@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kairos — Cada moment, una oportunitat</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: #1a1840;
+    color: #ffffff;
+    min-height: 100vh;
+  }
+
+  .hero {
+    background: linear-gradient(160deg, #2D2B5B 0%, #3D3A7A 60%, #2D2B5B 100%);
+    padding: 80px 24px 60px;
+    text-align: center;
+    border-bottom: 1px solid rgba(78,205,196,0.2);
+  }
+
+  .logo-circle {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, #4ECDC4, #5CDB95);
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 28px;
+    font-size: 40px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    background: linear-gradient(90deg, #4ECDC4, #5CDB95);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+  }
+
+  .hero .tagline {
+    font-size: 16px;
+    color: #B0AEDD;
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+
+  .hero .subtitle {
+    font-size: 18px;
+    color: rgba(255,255,255,0.75);
+    max-width: 520px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+  }
+
+  .btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #5CDB95, #4ECDC4);
+    color: #1a1840;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 16px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 24px rgba(92,219,149,0.3);
+  }
+
+  .btn-download:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(92,219,149,0.45);
+  }
+
+  .btn-download svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .meta-row {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #B0AEDD;
+  }
+
+  .meta-item svg { width: 15px; height: 15px; opacity: 0.7; }
+
+  .section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 64px 24px;
+  }
+
+  .section-title {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #4ECDC4;
+    margin-bottom: 12px;
+  }
+
+  .section-heading {
+    font-size: 30px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 40px;
+  }
+
+  .modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .module-card {
+    background: #2D2B5B;
+    border: 1px solid rgba(78,205,196,0.15);
+    border-radius: 16px;
+    padding: 24px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .module-card:hover {
+    border-color: rgba(78,205,196,0.4);
+    transform: translateY(-2px);
+  }
+
+  .module-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  .icon-teal   { background: rgba(78,205,196,0.15); }
+  .icon-mint   { background: rgba(92,219,149,0.15); }
+  .icon-lilac  { background: rgba(176,174,221,0.15); }
+  .icon-coral  { background: rgba(216,90,48,0.15); }
+  .icon-indigo { background: rgba(61,58,122,0.5); border: 1px solid rgba(78,205,196,0.2); }
+
+  .module-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+
+  .module-card p {
+    font-size: 14px;
+    color: #B0AEDD;
+    line-height: 1.6;
+  }
+
+  .install-section {
+    background: #2D2B5B;
+    border-top: 1px solid rgba(78,205,196,0.1);
+    border-bottom: 1px solid rgba(78,205,196,0.1);
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 560px;
+  }
+
+  .step {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4ECDC4, #5CDB95);
+    color: #1a1840;
+    font-weight: 700;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-text h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 4px;
+  }
+
+  .step-text p {
+    font-size: 14px;
+    color: #B0AEDD;
+    line-height: 1.5;
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(78,205,196,0.12);
+    color: #4ECDC4;
+    border: 1px solid rgba(78,205,196,0.25);
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: monospace;
+  }
+
+  footer {
+    text-align: center;
+    padding: 40px 24px;
+    color: #B0AEDD;
+    font-size: 13px;
+    border-top: 1px solid rgba(78,205,196,0.08);
+  }
+
+  footer a { color: #4ECDC4; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  .tdr-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(176,174,221,0.1);
+    border: 1px solid rgba(176,174,221,0.2);
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-size: 13px;
+    color: #B0AEDD;
+    margin-bottom: 28px;
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<section class="hero">
+  <div class="logo-circle">🕐</div>
+
+  <div class="tdr-badge">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+    Treball de Recerca · Institut Vil·la Romana · 2025–2026
+  </div>
+
+  <h1>Kairos</h1>
+  <p class="tagline">Cada moment, una oportunitat</p>
+  <p class="subtitle">L'aplicació mòbil per gestionar l'ansietat acadèmica i el temps d'estudi, dissenyada específicament per a estudiants de Batxillerat.</p>
+
+  <a class="btn-download" href="app-release.apk" download>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Descarregar per Android
+  </a>
+
+  <div class="meta-row">
+    <span class="meta-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+      Android 8.0+
+    </span>
+    <span class="meta-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      100% gratuït i anònim
+    </span>
+    <span class="meta-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      v1.0 · Juny 2026
+    </span>
+  </div>
+</section>
+
+<div class="section">
+  <p class="section-title">Funcionalitats</p>
+  <h2 class="section-heading">Tot el que necessites en una sola app</h2>
+
+  <div class="modules-grid">
+
+    <div class="module-card">
+      <div class="module-icon icon-teal">📋</div>
+      <h3>Planificador Eisenhower</h3>
+      <p>Organitza les teves tasques per urgència i importància. Visualitza exàmens, lliuraments i apunts en quatre quadrants per prioritzar de forma clara.</p>
+    </div>
+
+    <div class="module-card">
+      <div class="module-icon icon-mint">⏱️</div>
+      <h3>Temporitzador Pomodoro</h3>
+      <p>Sessions d'estudi de 25 minuts amb descansos programats. El temporitzador segueix actiu fins i tot si tanques l'app, amb notificacions d'avís.</p>
+    </div>
+
+    <div class="module-card">
+      <div class="module-icon icon-teal">🫁</div>
+      <h3>Respiració guiada</h3>
+      <p>Exercicis de respiració amb animació visual d'un cercle que s'expandeix i es contrau. Tres temàtiques diferents: relaxació, concentració i son.</p>
+    </div>
+
+    <div class="module-card">
+      <div class="module-icon icon-mint">🎵</div>
+      <h3>Música relaxant</h3>
+      <p>Selecció de sons agrupats en tres categories: per dormir, per concentrar-se i per estudiar. Integració directa amb Spotify.</p>
+    </div>
+
+    <div class="module-card">
+      <div class="module-icon icon-lilac">📊</div>
+      <h3>Registre d'ànim</h3>
+      <p>Mood Tracker diari amb escala de l'1 al 5. Visualitza l'evolució del teu estat emocional al llarg del temps i detecta patrons d'estrès.</p>
+    </div>
+
+    <div class="module-card">
+      <div class="module-icon icon-coral">🆘</div>
+      <h3>Pàgina SOS</h3>
+      <p>Accés immediat a tècniques de gestió d'ansietat en moments de crisi: respiració d'emergència, tècnica 5-4-3-2-1, aturada del pensament i música.</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="install-section">
+  <div class="section">
+    <p class="section-title">Instal·lació</p>
+    <h2 class="section-heading">Com instal·lar Kairos</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">
+          <h4>Descarrega l'APK</h4>
+          <p>Prem el botó de descàrrega des del teu mòbil Android. El fitxer <span class="badge">app-release.apk</span> es guardarà a la carpeta de Descàrregues.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">
+          <h4>Permet la instal·lació d'orígens desconeguts</h4>
+          <p>Android demanarà permís per instal·lar l'app. Ves a <strong>Configuració → Seguretat</strong> i activa «Orígens desconeguts» o prem «Instal·lar igualment» quan aparegui l'avís.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">
+          <h4>Obre el fitxer i instal·la</h4>
+          <p>Des del gestor de fitxers o la notificació de descàrrega, obre l'APK i segueix els passos d'instal·lació. En pocs segons, Kairos apareixerà al teu escriptori.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">
+          <h4>Comença sense registre</h4>
+          <p>Pots usar Kairos de forma completament anònima, sense crear cap compte ni facilitar dades personals. Les teves dades es guarden de forma segura i encriptada.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Kairos · Treball de Recerca de Batxillerat Tecnològic</p>
+  <p style="margin-top: 6px;">Joel Andreu i Nomen · Institut Vil·la Romana · Curs 2025–2026</p>
+  <p style="margin-top: 6px; opacity: 0.6;">Tutor/a: Laura Miralles · <a href="https://github.com/TU_USUARI/kairos-app">GitHub</a></p>
+</footer>
+
+</body>
+</html>
